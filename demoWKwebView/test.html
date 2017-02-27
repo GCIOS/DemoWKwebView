@@ -1,17 +1,74 @@
+
+
+<!DOCTYPE html>
 <html>
-    <head>
-        <script>
-            function login()
-            {
-                //前端需要用 window.webkit.messageHandlers.注册的方法名.postMessage({body:传输的数据} 来给native发送消息
-                window.webkit.messageHandlers.OCJSHelper.postMessage({body: 'hello world!123'});
-                
+    <head lang="en">
+        <meta charset="UTF-8">
+            <title></title>
+            <style>
+                *{
+                    padding: 0;
+                    margin: 0;
+                }
+            h3{
+                background-color: yellow;
+                width: 320px;
+                text-align: center;
             }
-        </script>
+            .box{
+                background-color: orange;
+                width: 320px;
+                height: 50px;
+                position: relative;
+                margin-bottom: 0;
+            }
+            img{
+                float: left;
+                height: 50px;
+                margin-top: 5px;
+            }
+            .div1{
+                margin-top: 8px;
+                margin-left: 5px;
+                background-color: red;
+                display: inline-block;
+            }
+            button{
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                width: 70px;
+                height: 40px;
+                background-color: yellow;
+            }
+            
+                </style>
+            <script>
+                function login()
+                {
+                    //前端需要用 window.webkit.messageHandlers.注册的方法名.postMessage({body:传输的数据} 来给native发送消息
+                    window.webkit.messageHandlers.HeadLineImg.postMessage({body: '跳转到头条号VC'});
+                    
+                }
+                function attentionClick(){
+                    var btn =  document.getElementsByClassName('attention')[0];
+                    
+                    window.webkit.messageHandlers.AttentionBtn.postMessage({body: btn.innerText});
+                }
+            
+                </script>
     </head>
-    <body>
-        
-        <button onclick="login()" style="font-size: 33px; width: 100px; height: 100px">say hello</button>
-    </body>
     
+    <body>
+        <h3>这是标题</h3>
+        <div class="box">
+            <img src="http://p3.pstatp.com/large/16ce000394abc45bed2d" onclick="login();">
+                <div class="div1">
+                    <p style="font-size: 14px">每日经济新闻</p>
+                    <p style="font-size: 11px;color: lightgray">2017/02/26</p>
+                </div>
+                <button class="attention" onclick="attentionClick();">关注</button>
+                </div>
+        
+    </body>
 </html>

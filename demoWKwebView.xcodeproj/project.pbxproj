@@ -110,10 +110,10 @@
 				205FE2331E640F4800980A90 /* AppDelegate.m */,
 				205FE2351E640F4800980A90 /* ViewController.h */,
 				205FE2361E640F4800980A90 /* ViewController.m */,
+				205FE2621E6411C200980A90 /* test.html */,
 				205FE2641E6412AF00980A90 /* CeshiViewController.h */,
 				205FE2651E6412AF00980A90 /* CeshiViewController.m */,
 				205FE2381E640F4800980A90 /* Main.storyboard */,
-				205FE2621E6411C200980A90 /* test.html */,
 				205FE23B1E640F4800980A90 /* Assets.xcassets */,
 				205FE23D1E640F4800980A90 /* LaunchScreen.storyboard */,
 				205FE2401E640F4800980A90 /* Info.plist */,
@@ -526,6 +526,7 @@
 				205FE25B1E640F4800980A90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		205FE25C1E640F4800980A90 /* Build configuration list for PBXNativeTarget "demoWKwebViewTests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +535,7 @@
 				205FE25E1E640F4800980A90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		205FE25F1E640F4800980A90 /* Build configuration list for PBXNativeTarget "demoWKwebViewUITests" */ = {
 			isa = XCConfigurationList;
@@ -542,6 +544,7 @@
 				205FE2611E640F4800980A90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

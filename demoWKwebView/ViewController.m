@@ -20,10 +20,8 @@
     [super viewDidLoad];
     
     WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
-    NSLog(@"%@", configuration.userContentController);
-    
-    [configuration.userContentController addScriptMessageHandler:self name:@"OCJSHelper"];
-    
+    [configuration.userContentController addScriptMessageHandler:self name:@"HeadLineImg"];
+    [configuration.userContentController addScriptMessageHandler:self name:@"AttentionBtn"];
     
     WKWebView *webView = [[WKWebView alloc] initWithFrame:self.view.bounds configuration:configuration];
     self.webView = webView;
@@ -35,23 +33,32 @@
 
 - (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message
 {
-    NSLog(@"%s", __func__);
-    NSLog(@"%@", message.name);
-    NSLog(@"%@", message.body);
+    //    NSLog(@"%@", message.name);
+    //    NSLog(@"%@", message.body);
+    
+    
+    if ([message.name isEqualToString:@"HeadLineImg"]) {
+        NSLog(@" ----  HeadLineImg  跳转控制器");
+        
+    }else  if ([message.name isEqualToString:@"AttentionBtn"]) {
+        
+        NSLog(@" ----  AttentionBtn   %@", message.body[@"body"]);
+        NSString *btnTitcle = message.body[@"body"];
+        if ([btnTitcle isEqualToString:@"关注"]) {
+            [self.webView evaluateJavaScript:@"var btn =  document.getElementsByClassName('attention')[0]; btn.innerText = '已关注';" completionHandler:nil];
+        }else{
+            
+            [self.webView evaluateJavaScript:@"var btn =  document.getElementsByClassName('attention')[0]; btn.innerText = '关注';" completionHandler:nil];
+        }
+    }
 }
 
 
-- (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation
-{
-    [webView evaluateJavaScript:@"login();" completionHandler:^(id _Nullable result, NSError * _Nullable error) {
-        NSLog(@"result = %@", result);
-        NSLog(@"error = %@", error);
-    }];
-}
 
 - (void)dealloc
 {
-    [self.webView.configuration.userContentController removeScriptMessageHandlerForName:@"OCJSHelper"];
+    [self.webView.configuration.userContentController removeScriptMessageHandlerForName:@"HeadLineImg"];
+    [self.webView.configuration.userContentController removeScriptMessageHandlerForName:@"AttentionBtn"];
 }
 
 @end
